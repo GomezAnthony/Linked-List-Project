@@ -2,29 +2,11 @@ import java.util.Scanner;
 public class NewClass {
     public static void main(String[] args) {
         WorldLinkedList list = new WorldLinkedList();
-        int x = Menu();
-       
-        switch(x){
-            case 1:
-                x =Menu();
-            case 2:
-                x = Menu();
-            case 3:
-                x = Menu();
-            case 4:
-                x = Menu();
-            case 5:
-                x = Menu();
-            case 6:
-                x = Menu();
-            case 7:
-                break;
-        }
-    }
-    public static int Menu()
-    {
         int input;
         Scanner takeInput = new Scanner(System.in);
+        char keep_going = 'y';
+        while(keep_going == 'y')
+        {
         System.out.println("Input the (1-7) based on the query you want to perform: "); 
         System.out.println("Insert word in the begining. - Input 1");
         System.out.println("Insert word at a given position. - Input 2 ");
@@ -34,7 +16,33 @@ public class NewClass {
         System.out.println("Search a specific word. - Input 6");
         System.out.println("Exit - Input 7");
         input = takeInput.nextInt();
-        return input;
+            if(input == 1){
+                list.insertAtBegining("Sohail");
+                list.insertAtBegining("Adhikari");
+                list.insertAtBegining("Puspa");
+                list.insertAtBegining("Giri");
+            }
+            else if(input == 2){
+                list.insertAtPosition(2, "Sabina");
+                list.insertAtPosition(3, "KC");
+            }
+            else if(input == 3){
+                list.deleteFromBegining();
+            }
+            else if(input == 4){
+                list.deleteAtPosition(1);
+            }
+            else if(input == 5){
+                list.displayAll();
+            }
+            else if(input == 6){
+               
+            }
+            else 
+                break;              
+        System.out.println("Do you want to keep going?: ");
+        keep_going = takeInput.next().charAt(0);
+        }
     }
 
 }
