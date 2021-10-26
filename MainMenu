@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class NewClass {
+    public static void main(String[] args) {
+        WorldLinkedList list = new WorldLinkedList();
+        int x = Menu();
+       
+        switch(x){
+            case 1:
+                x =Menu();
+            case 2:
+                x = Menu();
+            case 3:
+                x = Menu();
+            case 4:
+                x = Menu();
+            case 5:
+                x = Menu();
+            case 6:
+                x = Menu();
+            case 7:
+                break;
+        }
+    }
+    public static int Menu()
+    {
+        int input;
+        Scanner takeInput = new Scanner(System.in);
+        System.out.println("Input the (1-7) based on the query you want to perform: "); 
+        System.out.println("Insert word in the begining. - Input 1");
+        System.out.println("Insert word at a given position. - Input 2 ");
+        System.out.println("Delete word from the beginning. - Input 3");
+        System.out.println("Delete word from a given position. - Input 4");
+        System.out.println("Display complete list. - Input 5");
+        System.out.println("Search a specific word. - Input 6");
+        System.out.println("Exit - Input 7");
+        input = takeInput.nextInt();
+        return input;
+    }
+
+}
