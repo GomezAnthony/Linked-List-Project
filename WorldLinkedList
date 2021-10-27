@@ -1,36 +1,20 @@
 public class WorldLinkedList {
     // Creates a head node.
     Node head;
-    //
-    public void insertAtEnd(String data)
-    {
-        Node node = new Node();
-        node.data = data;
-        node.next = null;
-        if(head == null)
-        {
-            head = node;
-        }
-        else
-        {
-            Node temp = head;
-            while(temp.next != null)
-            {
-                temp = temp.next;
-            }
-            temp.next = node;
-        }
-    }
+    // displays all the values in linkedlist
     public void displayAll()
     {
         Node node = head;
+        //traverse through the link list from head node to the end
         while(node.next!=null)
         {
-            System.out.println(node.data);
+            System.out.println(node.data); //prints the value on each node
             node = node.next;
         }
-        System.out.println(node.data);
+        System.out.println(node.data); //prints the value at last node
     }
+    //inserts a node with data at the start of the linked list
+    //this node will be the new head node
     public void insertAtBegining(String data)
     {
         Node node = new Node();
@@ -39,51 +23,60 @@ public class WorldLinkedList {
         node.next = head;
         head = node;
     }
+    //inserts a node with data at a designated inedx
     public void insertAtPosition(int index, String data)
     {
         Node node = new Node();
         node.data = data;
         node.next = null;
         Node n = head;
+        //inserts node at begining if the linkedlist is empty
         if(index == 0)
         {
             insertAtBegining(data);
         }
+        //traverse throught the linked list to find the appropriate index and stops there
         for(int i = 0; i <index-1; i++)
         {
             n=n.next;
         }
         node.next = n.next;
-        n.next = node;
+        n.next = node; // inserts the node at the index
     }
+    //deletes the begining node
     public void deleteFromBegining()
     {
-        head = head.next;   
+        head = head.next;  //designates the 2nd node as the head node.  
     }
+    //deletes the node at the designated index
     public void deleteAtPosition(int index)
     {
         Node n = head;
         Node n1 = null;
+        //if the index is 0 deletes the begining/head node and designates the new head to the next node
         if(index == 0)
         {
             head = head.next;
         }
+        //traverse through the linkedlist to reach the node just before the approptiate node
         for(int i = 0; i <index-1; i++)
         {
             n=n.next;
         }
-        n1 = n.next;
-        n.next = n1.next;
+        n1 = n.next; // designate the node at the required index to n1
+        n.next = n1.next; // skips the node at the index and points to the next node.
         System.out.println(n1.data + " was deleted from the list.");
         
         
     }
+    //search for the given data in the linked list and returns a boolean value if value is found(true) or not found(false)
     public boolean searchWord(Node head, String value)
     {
-        if(head == null)
+    
+        if(head == null) //check to see if there is a head node or not. if there's no head node it returns false.
             return false;
-        if(head.data == value)
+        if(head.data == value) //if the node has the value required by the user, returns true. if not returns false
             return true;
-        return searchWord(head.next, value);
+        return searchWord(head.next, value); // uses recursion to look at the next value.
     }
 }
