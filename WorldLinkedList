@@ -1,5 +1,7 @@
 public class WorldLinkedList {
+    // Creates a head node.
     Node head;
+    //
     public void insertAtEnd(String data)
     {
         Node node = new Node();
