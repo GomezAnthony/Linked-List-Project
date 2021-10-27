@@ -1,5 +1,6 @@
+//class to create a node and linke to the next one.
 public class Node {
-    String data;
-    Node next;
+    String data; // data of the node
+    Node next; //link to next node.
 }
 
