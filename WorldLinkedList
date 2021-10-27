@@ -76,4 +76,12 @@ public class WorldLinkedList {
         
         
     }
+    public boolean searchWord(Node head, String value)
+    {
+        if(head == null)
+            return false;
+        if(head.data == value)
+            return true;
+        return searchWord(head.next, value);
+    }
 }
