@@ -2,8 +2,13 @@ import java.util.Scanner;
 public class NewClass {
     public static void main(String[] args) {
         WorldLinkedList list = new WorldLinkedList();
-        int input;
         Scanner takeInput = new Scanner(System.in);
+        Scanner newInput = new Scanner(System.in);
+        int input;
+        String x;
+        String userInput;
+        int indexPos;
+        boolean returnVal;
         char keep_going = 'y';
         while(keep_going == 'y')
         {
@@ -15,34 +20,65 @@ public class NewClass {
         System.out.println("Display complete list. - Input 5");
         System.out.println("Search a specific word. - Input 6");
         System.out.println("Exit - Input 7");
-        input = takeInput.nextInt();
+         x = takeInput.next();
+        input = exceptionHandler(x);
+       /* input = exceptionHandler(x);*/
             if(input == 1){
-                list.insertAtBegining("Sohail");
-                list.insertAtBegining("Adhikari");
-                list.insertAtBegining("Puspa");
-                list.insertAtBegining("Giri");
+                System.out.println("Enter the name of the place: ");
+                userInput = newInput.nextLine();
+                list.insertAtBegining(userInput);
             }
             else if(input == 2){
-                list.insertAtPosition(2, "Sabina");
-                list.insertAtPosition(3, "KC");
+                System.out.println("Enter the index of the data you want to enter: ");
+                indexPos = newInput.nextInt();
+                System.out.println("Enter the name of the place: ");
+                userInput = newInput.nextLine();
+                list.insertAtPosition(indexPos, userInput);
             }
             else if(input == 3){
                 list.deleteFromBegining();
+                System.out.println("The data at the begining has been deleted.");
             }
             else if(input == 4){
-                list.deleteAtPosition(1);
+                System.out.println("Enter the index of the data you want to delete.");
+                indexPos = newInput.nextInt();
+                list.deleteAtPosition(indexPos);
             }
             else if(input == 5){
                 list.displayAll();
             }
             else if(input == 6){
-               
+               System.out.println("Enter the place you want to search for: ");
+               userInput = newInput.nextLine();
+               returnVal = list.searchWord(list.head, userInput);
+               if(returnVal != true)
+                   System.out.println("The value does not exist.");
+               else {
+                   System.out.println("The value "+ userInput + " exists.");
+            }
             }
             else 
                 break;              
         System.out.println("Do you want to keep going?: ");
         keep_going = takeInput.next().charAt(0);
         }
+    }
+   public static int exceptionHandler(String y)
+    {
+        Scanner scan = new Scanner(System.in);
+        int output = 0;
+        try{
+           
+            output = Integer.parseInt(y);
+            return output;
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("The value you entered is should be an integer.");
+            String x = scan.nextLine();
+            exceptionHandler(x);
+        }
+        return output;
     }
 
 }
