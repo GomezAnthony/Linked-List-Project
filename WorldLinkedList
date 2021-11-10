@@ -70,13 +70,22 @@ public class WorldLinkedList {
         
     }
     //search for the given data in the linked list and returns a boolean value if value is found(true) or not found(false)
-    public boolean searchWord(Node head, String value)
+     public void searchWord(String input)
     {
-    
-        if(head == null) //check to see if there is a head node or not. if there's no head node it returns false.
-            return false;
-        if(head.data == value) //if the node has the value required by the user, returns true. if not returns false
-            return true;
-        return searchWord(head.next, value); // uses recursion to look at the next value.
+        Node temp = head;
+        while(temp.next != null)
+        {
+            if(temp.data == null ? input == null : temp.data.equals(input)) // checks to see is the data is in head value
+            {
+                System.out.println("The data was found");
+                break; //breaks the loop if it was found
+            }
+            temp = temp.next; //traverse to the next node of the list
+            if(temp.data == null ? input == null : temp.data.equals(input)) //checks to see if the data is equal to the user input
+                System.out.println("The data was found"); //if the data was found 
+            else
+                System.out.println("The data was not found"); //if the data was not found
+                    
+        }
     }
 }
