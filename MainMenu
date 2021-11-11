@@ -1,14 +1,36 @@
 import java.util.Scanner;
 public class NewClass {
     public static void main(String[] args) {
-        WorldLinkedList list = new WorldLinkedList();
+        menu();
+    }
+   public static int exceptionHandler()
+    {
+        String y;
         Scanner takeInput = new Scanner(System.in);
+        y = takeInput.next();
+        int output = 0;
+        try{ 
+            
+            output = Integer.parseInt(y);
+            return output;
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("The value you entered is should be an integer.");
+            menu();
+        }
+        return output;
+    }
+   
+    public static void menu()
+    {
+        WorldLinkedList list = new WorldLinkedList();
         Scanner newInput = new Scanner(System.in);
+        Scanner take = new Scanner(System.in);
         int input;
-        String x;
         String userInput;
         int indexPos;
-        boolean returnVal;
+        Node node = new Node();
         char keep_going = 'y';
         while(keep_going == 'y')
         {
@@ -20,8 +42,8 @@ public class NewClass {
         System.out.println("Display complete list. - Input 5");
         System.out.println("Search a specific word. - Input 6");
         System.out.println("Exit - Input 7");
-         x = takeInput.next();
-        input = exceptionHandler(x);
+        input = exceptionHandler();
+        
        /* input = exceptionHandler(x);*/
             if(input == 1){
                 System.out.println("Enter the name of the place: ");
@@ -45,40 +67,19 @@ public class NewClass {
                 list.deleteAtPosition(indexPos);
             }
             else if(input == 5){
-                list.displayAll();
+               list.displayAll();
+                   
             }
             else if(input == 6){
                System.out.println("Enter the place you want to search for: ");
                userInput = newInput.nextLine();
-               returnVal = list.searchWord(list.head, userInput);
-               if(returnVal != true)
-                   System.out.println("The value does not exist.");
-               else {
-                   System.out.println("The value "+ userInput + " exists.");
-            }
+               list.searchWord(userInput);
             }
             else 
                 break;              
         System.out.println("Do you want to keep going?: ");
-        keep_going = takeInput.next().charAt(0);
-        }
-    }
-   public static int exceptionHandler(String y)
-    {
-        Scanner scan = new Scanner(System.in);
-        int output = 0;
-        try{
-           
-            output = Integer.parseInt(y);
-            return output;
-        }
-        catch(NumberFormatException e)
-        {
-            System.out.println("The value you entered is should be an integer.");
-            String x = scan.nextLine();
-            exceptionHandler(x);
-        }
-        return output;
+        keep_going = take.next().charAt(0);
+        }   
     }
 
 }
