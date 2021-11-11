@@ -4,14 +4,7 @@ public class WorldLinkedList {
     // displays all the values in linkedlist
     public void displayAll()
     {
-        Node node = head;
-        //traverse through the link list from head node to the end
-        while(node.next!=null)
-        {
-            System.out.println(node.data); //prints the value on each node
-            node = node.next;
-        }
-        System.out.println(node.data); //prints the value at last node
+     // remaining.   
     }
     //inserts a node with data at the start of the linked list
     //this node will be the new head node
