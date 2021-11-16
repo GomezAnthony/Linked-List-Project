@@ -3,7 +3,7 @@ public class NewClass {
     public static void main(String[] args) {
         menu();
     }
-   public static int exceptionHandler()
+   public static int exceptionHandler() //exception handler for user input. Checks to see if the user input is an integer.
     {
         String y;
         Scanner takeInput = new Scanner(System.in);
@@ -26,13 +26,14 @@ public class NewClass {
     {
         WorldLinkedList list = new WorldLinkedList();
         Scanner newInput = new Scanner(System.in);
+        Scanner newInput1 = new Scanner(System.in);
+        Scanner newInput2 = new Scanner(System.in);
         Scanner take = new Scanner(System.in);
         int input;
         String userInput;
         int indexPos;
-        Node node = new Node();
         char keep_going = 'y';
-        while(keep_going == 'y')
+        while(keep_going == 'y')  //a while loop that ends if the user inputs any other character than y.
         {
         System.out.println("Input the (1-7) based on the query you want to perform: "); 
         System.out.println("Insert word in the begining. - Input 1");
@@ -41,9 +42,8 @@ public class NewClass {
         System.out.println("Delete word from a given position. - Input 4");
         System.out.println("Display complete list. - Input 5");
         System.out.println("Search a specific word. - Input 6");
-        System.out.println("Exit - Input 7");
+        System.out.println("Exit - Input any number other than 1-6");
         input = exceptionHandler();
-        
        /* input = exceptionHandler(x);*/
             if(input == 1){
                 System.out.println("Enter the name of the place: ");
@@ -54,7 +54,7 @@ public class NewClass {
                 System.out.println("Enter the index of the data you want to enter: ");
                 indexPos = newInput.nextInt();
                 System.out.println("Enter the name of the place: ");
-                userInput = newInput.nextLine();
+                userInput = newInput1.next();
                 list.insertAtPosition(indexPos, userInput);
             }
             else if(input == 3){
@@ -72,7 +72,7 @@ public class NewClass {
             }
             else if(input == 6){
                System.out.println("Enter the place you want to search for: ");
-               userInput = newInput.nextLine();
+               userInput = newInput2.next();
                list.searchWord(userInput);
             }
             else 
