@@ -28,6 +28,8 @@ public class NewClass {
         Scanner newInput = new Scanner(System.in);
         Scanner newInput1 = new Scanner(System.in);
         Scanner newInput2 = new Scanner(System.in);
+        Scanner newInput3 = new Scanner(System.in);
+        Scanner newInput4 = new Scanner(System.in);
         Scanner take = new Scanner(System.in);
         int input;
         String userInput;
@@ -51,9 +53,9 @@ public class NewClass {
             }
             else if(input == 2){
                 System.out.println("Enter the index of the data you want to enter: ");
-                indexPos = newInput.nextInt();
+                indexPos = newInput1.nextInt();
                 System.out.println("Enter the name of the place: ");
-                userInput = newInput1.next();
+                userInput = newInput2.next();
                 list.insertAtPosition(indexPos, userInput);
             }
             else if(input == 3){
@@ -62,7 +64,7 @@ public class NewClass {
             }
             else if(input == 4){
                 System.out.println("Enter the index of the data you want to delete.");
-                indexPos = newInput.nextInt();
+                indexPos = newInput3.nextInt();
                 list.deleteAtPosition(indexPos);
             }
             else if(input == 5){
@@ -71,7 +73,7 @@ public class NewClass {
             }
             else if(input == 6){
                System.out.println("Enter the place you want to search for: ");
-               userInput = newInput2.next();
+               userInput = newInput4.next();
                list.searchWord(userInput);
             }
             else 
