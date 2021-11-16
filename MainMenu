@@ -44,7 +44,6 @@ public class NewClass {
         System.out.println("Search a specific word. - Input 6");
         System.out.println("Exit - Input any number other than 1-6");
         input = exceptionHandler();
-       /* input = exceptionHandler(x);*/
             if(input == 1){
                 System.out.println("Enter the name of the place: ");
                 userInput = newInput.nextLine();
