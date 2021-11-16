@@ -75,21 +75,21 @@ public class WorldLinkedList {
     }
     public void searchWord(String input)
     {
-        Node temp = head;
+        Node temp =head;
         while(temp.next != null)
         {
-            if(temp.data == null ? input == null : temp.data.equals(input))
-            {
+            if(temp.data == null ? input == null : temp.data.equals(input)){
                 System.out.println("The data was found");
-                break;
+                return;
             }
-            temp = temp.next;
-            if(temp.data == null ? input == null : temp.data.equals(input))
-                System.out.println("The data was found");
             else
-                System.out.println("The data was not found");
-                    
+                temp = temp.next;
         }
+        if(temp.data == null ? input == null : temp.data.equals(input))
+            System.out.println("The data was found");
+        else
+            System.out.println("The data was not found");
         
+       
     }
  }
