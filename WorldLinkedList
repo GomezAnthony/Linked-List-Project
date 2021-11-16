@@ -1,13 +1,33 @@
 public class WorldLinkedList {
-    // Creates a head node.
     Node head;
-    // displays all the values in linkedlist
-    public void displayAll()
+    public void insertAtEnd(String data)
     {
-     // remaining.   
+        Node node = new Node();
+        node.data = data;
+        node.next = null;
+        if(head == null)
+        {
+            head = node;
+        }
+        else
+        {
+            Node temp = head;
+            while(temp.next != null)
+            {
+                temp = temp.next;
+            }
+            temp.next = node;
+        }
     }
-    //inserts a node with data at the start of the linked list
-    //this node will be the new head node
+    public void displayAll() //recursive function that displays all the data in the list.
+    {
+       if(head == null)
+           return;
+       System.out.println(head.data);
+       head = head.next;
+       displayAll();
+         
+    }
     public void insertAtBegining(String data)
     {
         Node node = new Node();
@@ -16,69 +36,60 @@ public class WorldLinkedList {
         node.next = head;
         head = node;
     }
-    //inserts a node with data at a designated inedx
     public void insertAtPosition(int index, String data)
     {
         Node node = new Node();
         node.data = data;
         node.next = null;
         Node n = head;
-        //inserts node at begining if the linkedlist is empty
         if(index == 0)
         {
             insertAtBegining(data);
         }
-        //traverse throught the linked list to find the appropriate index and stops there
         for(int i = 0; i <index-1; i++)
         {
             n=n.next;
         }
         node.next = n.next;
-        n.next = node; // inserts the node at the index
+        n.next = node;
     }
-    //deletes the begining node
     public void deleteFromBegining()
     {
-        head = head.next;  //designates the 2nd node as the head node.  
+        head = head.next;   
     }
-    //deletes the node at the designated index
     public void deleteAtPosition(int index)
     {
         Node n = head;
         Node n1 = null;
-        //if the index is 0 deletes the begining/head node and designates the new head to the next node
         if(index == 0)
         {
             head = head.next;
         }
-        //traverse through the linkedlist to reach the node just before the approptiate node
         for(int i = 0; i <index-1; i++)
         {
             n=n.next;
         }
-        n1 = n.next; // designate the node at the required index to n1
-        n.next = n1.next; // skips the node at the index and points to the next node.
+        n1 = n.next;
+        n.next = n1.next;
         System.out.println(n1.data + " was deleted from the list.");
-        
-        
     }
-    //search for the given data in the linked list and returns a boolean value if value is found(true) or not found(false)
-     public void searchWord(String input)
+    public void searchWord(String input)
     {
         Node temp = head;
         while(temp.next != null)
         {
-            if(temp.data == null ? input == null : temp.data.equals(input)) // checks to see is the data is in head value
+            if(temp.data == null ? input == null : temp.data.equals(input))
             {
                 System.out.println("The data was found");
-                break; //breaks the loop if it was found
+                break;
             }
-            temp = temp.next; //traverse to the next node of the list
-            if(temp.data == null ? input == null : temp.data.equals(input)) //checks to see if the data is equal to the user input
-                System.out.println("The data was found"); //if the data was found 
+            temp = temp.next;
+            if(temp.data == null ? input == null : temp.data.equals(input))
+                System.out.println("The data was found");
             else
-                System.out.println("The data was not found"); //if the data was not found
+                System.out.println("The data was not found");
                     
         }
+        
     }
-}
+ }
